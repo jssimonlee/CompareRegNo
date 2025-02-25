@@ -33,11 +33,11 @@ def compare_data(a_data, b_data, library_code):
 st.title("📌 등록번호 비교 프로그램")
 
 # 입력 필드
-a_data = st.text_area("A 데이터 입력", placeholder="예시: ABC12345, AB12345", height=150)
-b_data = st.text_area("B 데이터 입력", placeholder="예시: ABC12345, AB12345", height=150)
+a_data = st.text_area("A 데이터 입력", placeholder="예시: ABC12345, AB12345", height=150, key="a_data")
+b_data = st.text_area("B 데이터 입력", placeholder="예시: ABC12345, AB12345", height=150, key="b_data")
 
 # 도서관 부호 입력
-library_code = st.text_input("도서관 부호 (선택 사항)").upper()
+library_code = st.text_input("도서관 부호 (선택 사항)", key="library_code").upper()
 
 if st.button("🔍 비교하기"):
     if not a_data.strip() or not b_data.strip():
@@ -55,4 +55,7 @@ if st.button("🔍 비교하기"):
             st.success("🎉 두 데이터가 완전히 일치합니다!")
 
 if st.button("🔄 초기화"):
+    st.session_state.a_data = ""
+    st.session_state.b_data = ""
+    st.session_state.library_code = ""
     st.rerun()
