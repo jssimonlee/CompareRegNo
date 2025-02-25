@@ -55,7 +55,7 @@ if st.button("🔍 비교하기"):
             st.success("🎉 두 데이터가 완전히 일치합니다!")
 
 if st.button("🔄 초기화"):
-    st.session_state.a_data = ""
-    st.session_state.b_data = ""
-    st.session_state.library_code = ""
+    # st.session_state.a_data = ""
+    # st.session_state.b_data = ""
+    # st.session_state.library_code = ""
     st.rerun()
