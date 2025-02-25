@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 
 def format_data(data, library_code):
     data = data.upper().strip()
