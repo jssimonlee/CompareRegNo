@@ -32,20 +32,12 @@ def compare_data(a_data, b_data, library_code):
 # Streamlit UI 시작
 st.title("📌 등록번호 비교 프로그램")
 
-# 세션 상태 초기화
-if "a_data" not in st.session_state:
-    st.session_state["a_data"] = ""
-if "b_data" not in st.session_state:
-    st.session_state["b_data"] = ""
-if "library_code" not in st.session_state:
-    st.session_state["library_code"] = ""
-
 # 입력 필드
-a_data = st.text_area("A 데이터 입력", value=st.session_state["a_data"], placeholder="예시: ABC12345, AB12345", height=150, key="a_data")
-b_data = st.text_area("B 데이터 입력", value=st.session_state["b_data"], placeholder="예시: ABC12345, AB12345", height=150, key="b_data")
+a_data = st.text_area("A 데이터 입력", placeholder="예시: ABC12345, AB12345", height=150, key="a_data")
+b_data = st.text_area("B 데이터 입력", placeholder="예시: ABC12345, AB12345", height=150, key="b_data")
 
 # 도서관 부호 입력
-library_code = st.text_input("도서관 부호 (선택 사항)", value=st.session_state["library_code"], key="library_code").upper()
+library_code = st.text_input("도서관 부호 (선택 사항)", key="library_code").upper()
 
 if st.button("🔍 비교하기"):
     if not a_data.strip() or not b_data.strip():
@@ -61,12 +53,3 @@ if st.button("🔍 비교하기"):
         
         if len(a_minus_b) == 0 and len(b_minus_a) == 0 and len(intersection) > 0:
             st.success("🎉 두 데이터가 완전히 일치합니다!")
-
-# ✅ 초기화 버튼 수정 ✅
-if st.button("🔄 초기화"):
-    st.session_state.update({
-        "a_data": "",
-        "b_data": "",
-        "library_code": ""
-    })
-    st.rerun()
