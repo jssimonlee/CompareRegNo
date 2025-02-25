@@ -55,4 +55,4 @@ if st.button("🔍 비교하기"):
             st.success("🎉 두 데이터가 완전히 일치합니다!")
 
 if st.button("🔄 초기화"):
-    st.experimental_rerun()
+    st.rerun()
